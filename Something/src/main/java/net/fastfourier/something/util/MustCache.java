@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by matthewshepard on 1/29/14.
  */
 public class MustCache {
-    private static Template postTemplate, footerTemplate, headerTemplate, pmTemplate;
+    private static Template postTemplate, footerTemplate, headerTemplate, pmTemplate, profileTemplate;
 
 
     public static void init(final Context context){
@@ -44,6 +44,9 @@ public class MustCache {
         builder.append(pmTemplate.execute(args));
     }
 
+    public synchronized static void applyProfileTemplate(StringBuilder builder, Map<String, String> args) {
+        builder.append(profileTemplate.execute(args));
+    }
     private synchronized static void generatePostTemplates(Context context){
         try {
             InputStreamReader postMustReader = new InputStreamReader(context.getResources().getAssets().open("mustache/post.mustache"), Charsets.UTF_8);
@@ -58,10 +61,14 @@ public class MustCache {
             InputStreamReader footerInput = new InputStreamReader(context.getResources().getAssets().open("mustache/footer.mustache"), Charsets.UTF_8);
             footerTemplate = Mustache.compiler().compile(footerInput);
 
+            InputStreamReader profileInput = new InputStreamReader(context.getResources().getAssets().open("mustache/profile.mustache"), Charsets.UTF_8);
+            profileTemplate = Mustache.compiler().compile(profileInput);
+
             Closeables.close(pmMustReader, true);
             Closeables.close(headerInput, true);
             Closeables.close(footerInput, true);
             Closeables.close(postMustReader, true);
+            Closeables.close(profileInput, true);
         } catch (IOException e) {
             e.printStackTrace();
             //should never happen, log via bugsense just in case

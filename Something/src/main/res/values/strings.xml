@@ -124,5 +124,5 @@
     <string name="reply_draft_title_reply">Saved Draft</string>
     <string name="reply_draft_title_pm">Saved Draft</string>
     <string name="pull_bottom_release_refresh">Release to refresh…</string>
-
+    <string name="profile_activity">Profile</string>
 </resources>

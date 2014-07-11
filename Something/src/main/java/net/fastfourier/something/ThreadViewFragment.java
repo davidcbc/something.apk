@@ -700,8 +700,9 @@ public class ThreadViewFragment extends SomeFragment implements PageSelectDialog
                                     FastAlert.notice(ThreadViewFragment.this, R.string.link_copied, R.drawable.ic_menu_link);
                                     break;
                                 case 4://Profile
-                                    //TODO not implemented yet
-                                    FastAlert.error(ThreadViewFragment.this, "NOT IMPLEMENTED YET");
+                                    startActivityForResult(
+                                            new Intent(getActivity(), ProfileActivity.class)
+                                                    .putExtra("userid",userid),5);
                                     break;
                                 case 5://Rapsheet
                                     //TODO not implemented yet
@@ -748,8 +749,9 @@ public class ThreadViewFragment extends SomeFragment implements PageSelectDialog
                                     FastAlert.notice(ThreadViewFragment.this, R.string.link_copied, R.drawable.ic_menu_link);
                                     break;
                                 case 4://Profile
-                                    //TODO not implemented yet
-                                    FastAlert.error(ThreadViewFragment.this, "NOT IMPLEMENTED YET");
+                                    startActivityForResult(
+                                            new Intent(getActivity(), ProfileActivity.class)
+                                                    .putExtra("userid",userid),5);
                                     break;
                                 case 5://Rapsheet
                                     //TODO not implemented yet

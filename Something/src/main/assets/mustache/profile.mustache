@@ -1,0 +1,24 @@
+<article class="unread" >
+	<header class="postheader">
+     	<section  class="postinfo">
+ 			{{# avatarURL }}
+     		<div class="avatar-cell">
+     	    	<div class="avatar">
+     			    <img src="{{ . }}" title="{{ username }}'s avatar" />
+     			</div>
+     		</div>
+ 			{{/avatarURL }}
+ 			<aside class="postinfo-poster">{{ username }} {{# mod }}<img src="file:///android_res/drawable/ic_star_blue.png" />{{/mod }} {{# admin }}<img src="file:///android_res/drawable/ic_star_red.png" />{{/admin }} </aside>
+			<aside class="postinfo-title">{{{ avatarText }}}</aside>
+		</section >
+    </header>
+	<section  class="postcontent">
+	    <div class="">
+	        <aside class="">About {{ username }}</aside>
+            <aside class="">Posts {{ numberOfPosts }}</aside>
+            <aside class="">Posts Per Day {{ postsPerDay }}</aside>
+            <aside class="">Gender {{ gender }}</aside>
+            <aside class="">Additional Info {{ additionalInfo }}</aside>
+	    </div>
+	</section >
+</article>
